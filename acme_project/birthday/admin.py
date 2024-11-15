@@ -1,7 +1,8 @@
 from django.contrib import admin
 
 
-from .models import Birthday
+from .models import Birthday, Tag
+
 
 class BirthdayAdmin(admin.ModelAdmin):
     """Создаем модель Birthday."""
@@ -19,4 +20,17 @@ class BirthdayAdmin(admin.ModelAdmin):
     )
 
 
+class TagAdmin(admin.ModelAdmin):
+    """Создаем модель Tag."""
+    list_display = (
+        'id',
+        'tag',
+    )
+
+    list_editable = (
+        'tag',
+    )
+
+
 admin.site.register(Birthday, BirthdayAdmin)
+admin.site.register(Tag, TagAdmin)
